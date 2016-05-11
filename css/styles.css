@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  background-color: darkgray;
+  padding: 1em;
+  border: 1em;
+  margin: auto;
+}
+
+/*.in-border {
+  margin: auto;
+  padding: 2em;
+  width: 400px;
+  height: 400px;
+  border-style: solid;
+  border-color: black;
+}*/
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#div-border {
+  position: relative;
+  margin: auto;
+  padding: 2em;
+  width: 400px;
+  height: 400px;
+  border-style: solid;
+  border-color: black;
+}
+
+#div-fuchsia {
+  background-color: fuchsia;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+}
+
+#div-blue {
+  background-color: blue;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+}
