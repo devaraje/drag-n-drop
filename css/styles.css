@@ -36,6 +36,8 @@ h1 {
   display: inline-block;
   height: 50px;
   width: 50px;
+  left: 2em;
+  top: 2em;
   position: absolute;
 }
 
@@ -44,5 +46,7 @@ h1 {
   display: inline-block;
   height: 30px;
   width: 30px;
+  top: 10em;
+  left: 10em;
   position: absolute;
 }

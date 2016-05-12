@@ -13,14 +13,59 @@ Optional features: Confine the dragged elements to remain inside the outer div. 
 
 //initialize variables
 
-var evtTarget;
-
-//resetPage();
+var pagex;
+var pagey;
+var diffx;
+var diffy;
+var elem;
 
 //event listeners
-/*$('#div-fuchsia').on('mousedown', onMouseDownDrag);
+$('#div-fuchsia').on('mousedown', onMouseDownDrag);
 $('#div-blue').on('mousedown', onMouseDownDrag);
-$('#div-fuchsia').on('mousemove', onMouseMoveUpdatePos);
-$('#div-blue').on('mousemove', onMouseMoveUpdatePos);
-$('#div-fuchsia').on('mouseup', onMouseUpDrop);
-$('#div-blue').on('mouseup', onMouseUpDrop);*/
+
+
+function onMouseDownDrag(evt){
+  
+  evt.preventDefault;
+  var etarget = evt.target;
+  elem = $(etarget);
+  var top = ($( etarget ).css( "top")).split("px")[0];
+  var left = ($( etarget ).css("left")).split("px")[0];
+  pagex = evt.pageX;
+  pagey = evt.pageY;
+  diffx = Math.abs(top - pagex);
+  diffy = Math.abs(left - pagey);
+  
+  console.log('top : ' + top);
+  console.log('left : ' + left);
+  console.log('pagex : ' + pagex);
+  console.log('pagey : ' + pagey);
+  
+  console.log(etarget);
+  
+  $(document).on('mousemove', onMouseMoveUpdatePos);
+  $(document).on('mouseup', onMouseUpDrop);
+}
+
+function onMouseMoveUpdatePos(evt){
+  
+  evt.preventDefault;
+  console.log("in mousemove");
+  pagex = evt.pageX;
+  pagey = evt.pageY;
+  var top = String(pagex + diffx) + "px";
+  var left = String(pagey - diffy) + "px";
+  $(elem).css("top", top);
+  $(elem).css("left", left);
+  $(elem).show;
+  
+}
+
+function onMouseUpDrop(evt){
+  
+  evt.preventDefault;
+  console.log("in mouseup");
+  $(document).off('mousemove', onMouseMoveUpdatePos);
+  $(elem).off('mousedown', onMouseDownDrag);
+  $(elem).show;
+}
